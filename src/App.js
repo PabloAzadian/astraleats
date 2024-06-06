@@ -1,22 +1,28 @@
-import logo from './logo.svg';
+import {React, useState} from "react"
 import './App.css';
+import hero from "./images/Hero.png"
+import hero2 from "./images/About Us.png"
+import IconSlider from './IconSlider/IconSlider';
+import Hero from "./Hero/Hero";
+import NavBar from './Navbar/NavBar';
+import MilkyWay from './MilkyWay/MilkyWay';
+import PortalDelivery from './PortalDelivery/PortalDelivery';
+import Menu from './Menu/Menu';
 
 function App() {
+  const [scene, setScene] = useState("Home")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <NavBar setScene={setScene}/>
+      <header>
+        {scene== "Menu" && <Menu/>}
+        {scene == "Home" && <>
+        <Hero setScene={setScene}/>
+        <IconSlider />
+        <MilkyWay/>
+        <PortalDelivery/>
+        </>}
+        
       </header>
     </div>
   );

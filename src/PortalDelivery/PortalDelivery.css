@@ -1,0 +1,51 @@
+.delivery-section{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    margin: auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.delivery-section img {
+    max-height: 650px;
+    margin: auto;
+    max-width: 100%; /* Ensure the image does not exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.delivery-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+    max-width: 60%;
+    align-self: center;
+}
+
+.delivery-text h1 {
+    margin-bottom:2rem;
+}
+
+
+.delivery-text p{
+    font-family: Cartesian;
+}
+
+.code{
+    font-family: Supercharge;
+    margin: 0;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .delivery-section{
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .delivery-text{
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,222 @@
+.hero {
+    margin: 3rem;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-container img {
+    max-height: 650px;
+    margin: auto;
+    max-width: 100%; /* Ensure the image does not exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.content {
+    text-align: left;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 2rem;
+}
+
+.name {
+    font-size: 4rem;
+}
+
+.infos {
+    font-size: 1rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.content button {
+    font-family: Supercharge !important;
+    background-color: #23233c;
+    color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.content button p {
+    margin: 0;
+}
+
+@keyframes gradient {
+    0% {
+        color: #f7f3e1;
+    }
+    10% {
+        color: #f9e0d9;
+    }
+    20% {
+        color: #fbc7c1;
+    }
+    30% {
+        color: #fda6a1;
+    }
+    40% {
+        color: #fb7b83;
+    }
+    50% {
+        color: #ef3a98;
+    }
+    60% {
+        color: #fb7b83;
+    }
+    70% {
+        color: #fda6a1;
+    }
+    80% {
+        color: #fbc7c1;
+    }
+    90% {
+        color: #f9e0d9;
+    }
+    100% {
+        color: #f7f3e1;
+    }
+}
+
+@keyframes gradient2 {
+    0% {
+        color: #ef3a98;
+    }
+    10% {
+        color: #fb7b83;
+    }
+    20% {
+        color: #fda6a1;
+    }
+    30% {
+        color: #fbc7c1;
+    }
+    40% {
+        color: #f9e0d9;
+    }
+    50% {
+        color: #f7f3e1;
+    }
+    60% {
+        color: #f9e0d9;
+    }
+    70% {
+        color: #fbc7c1;
+    }
+    80% {
+        color: #fda6a1;
+    }
+    90% {
+        color: #fb7b83;
+    }
+    100% {
+        color: #ef3a98;
+    }
+}
+
+.color-gradient {
+    animation: gradient 10s infinite; /* Animation for gradient */
+}
+
+.color-gradient2 {
+    animation: gradient2 10s infinite; /* Animation for gradient2 */
+}
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-container img {
+        height: auto; /* Maintain aspect ratio */
+        max-width: 80%; /* Adjust as needed to fit within the screen */
+    }
+
+    .content {
+        text-align: center; /* Center text when in column layout */
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+
+    .name {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+
+    .content button {
+        font-size: 1.3rem; /* Adjust button font size */
+    }
+
+    .content button p {
+        font-size: 1rem; /* Adjust button text font size */
+    }
+    .buttons {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-container img {
+        height: auto; /* Maintain aspect ratio */
+        max-width: 100%; /* Adjust as needed to fit within the screen */
+    }
+
+    .content {
+        text-align: center; /* Center text when in column layout */
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    .name {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+    }
+
+    .content button {
+        font-size: 1.2rem; /* Adjust button font size */
+    }
+
+    .content button p {
+        font-size: 0.9rem; /* Adjust button text font size */
+    }
+    .buttons {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-container img {
+        height: auto; /* Maintain aspect ratio */
+        max-width: 100%; /* Adjust as needed to fit within the screen */
+    }
+
+    .content {
+        text-align: center; /* Center text when in column layout */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    .name {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+
+    .content button {
+        font-size: 1rem; /* Adjust button font size */
+    }
+
+    .content button p {
+        font-size: 0.8rem; /* Adjust button text font size */
+    }
+    .buttons {
+        margin: auto;
+    }
+}

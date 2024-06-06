@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Supercharge";
+  src: local("Supercharge"),
+    url("./fonts/Supercharge-JRgPo.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cartesian";
+  src: local("Cartesian"),
+    url("./fonts/VeniteAdoremusStraight-Yzo6v.ttf") format("opentype");
+  font-weight: normal;
+}

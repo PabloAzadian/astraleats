@@ -1,0 +1,70 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap:3rem;
+    text-align: center;
+    padding: 2rem;
+
+}
+
+
+
+.categories {
+    display: flex;
+    /* justify-content: center; */
+    gap: 2rem;
+    text-align: left;
+    overflow-x: scroll;
+    margin: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  
+  }
+  
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .category.active {
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  
+  .category img {
+    height: 200px; /* Adjust the image size as needed */
+    width: auto;
+    transition: transform 0.3s;
+  }
+  
+  .category:hover img {
+    transform: scale(1.1);
+  }
+  
+  .category h4 {
+    margin-top: 1rem;
+    color: #fff; /* Adjust the text color as needed */
+  }
+  
+  .category-container {
+    /* background-color: #23233c; */
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
+  .category-container h2 {
+    margin-bottom: 2rem;
+    color: #fff; /* Adjust the text color as needed */
+  }
+  
+  .card-displayer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }

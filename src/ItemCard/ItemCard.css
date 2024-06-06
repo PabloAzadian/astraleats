@@ -1,0 +1,34 @@
+/* ItemCard.css */
+.itemcard {
+    background-color: #23233c;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+    color: #fff; /* Ensuring text color is visible against dark background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding some shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Adding transition for hover effect */
+    margin: 0.5rem; /* Adding some margin */
+    font-family: Cartesian;
+  }
+  
+  .itemcard img {
+    height: 150px;
+    width: auto;
+    border-radius: 4px; /* Adding border radius to the image */
+    margin-bottom: 0.5rem; /* Adding space between the image and text */
+  }
+  
+  .itemcard p {
+    font-size: 0.8rem; /* Increasing font size */
+    margin: 0.5rem 0 0; /* Adding some margin for spacing */
+    width: 100%; /* Setting the text width to match the container's width */
+    max-width: 150px; /* Ensuring the text width doesn't exceed the image width */
+    margin: 0 auto; /* Centering the text */
+  }
+  
+  .itemcard:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    cursor: pointer;
+  }
+  

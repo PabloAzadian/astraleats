@@ -1,0 +1,39 @@
+/* IconSlider.css */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.icon-slider {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #23233c; /* Ensuring the background color covers the slider */
+  height: 120px; /* Adjust height as needed */
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  width: calc(100% * 2); /* Twice the width to accommodate two sets of icons */
+  align-items: center;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee img {
+  height: 100px;
+  width: 100px;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-right: 10px; /* Adjust spacing between icons */
+  margin: 10px
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0); /* Move to the left by 50% of the width */
+  }
+}
