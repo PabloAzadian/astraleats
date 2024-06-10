@@ -89,6 +89,16 @@
 @media screen and (max-width: 576px){
   .itemcard{
     margin: auto;
+    padding: 0.5rem;
+  }
+
+  .itemcard img{
+    height: 130px;
+  }
+
+  .itemcard p {
+    font-size: 0.6rem;
+    max-width:130px;
   }
 }
 
