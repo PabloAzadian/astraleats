@@ -1,5 +1,5 @@
 import React from 'react'
-import Portal from "../images/portal2.png"
+import Portal from "../images/portal2.avif"
 import "./PortalDelivery.css"
 
 function PortalDelivery() {

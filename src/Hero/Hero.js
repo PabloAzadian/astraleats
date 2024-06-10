@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { TbClockHour5 } from "react-icons/tb";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import "./Hero.css"
-import HeroImg from "../images/Hero.png"
+import HeroImg from "../images/Hero.avif"
 
 
 function Hero({setScene}) {

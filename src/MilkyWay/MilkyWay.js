@@ -1,5 +1,5 @@
 import React from 'react'
-import Milky from "../images/milky way.png"
+import Milky from "../images/milky-way.avif"
 import "./MilkyWay.css"
 import { IoRocket } from "react-icons/io5";
 
