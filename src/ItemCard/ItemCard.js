@@ -30,8 +30,8 @@ function ItemCard({ item }) {
   };
 
   return (
-    <div className='itemcard'>
-      <img src={item.imgsrc} alt={item.name} onClick={handleShow} />
+    <div onClick={handleShow} className='itemcard'>
+      <img src={item.imgsrc} alt={item.name} />
       <p>{item.name}</p>
       <p>{item.price}€</p>
 
