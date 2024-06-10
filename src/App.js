@@ -8,6 +8,8 @@ import NavBar from './Navbar/NavBar';
 import MilkyWay from './MilkyWay/MilkyWay';
 import PortalDelivery from './PortalDelivery/PortalDelivery';
 import Menu from './Menu/Menu';
+import Testimonials from "./Testimonials/Testimonials";
+import Footer from "./Footer/Footer"
 
 function App() {
   const [scene, setScene] = useState("Home")
@@ -21,6 +23,9 @@ function App() {
         <IconSlider />
         <MilkyWay/>
         <PortalDelivery/>
+        <Testimonials/>
+        
+        <Footer/>
         </>}
         
       </header>

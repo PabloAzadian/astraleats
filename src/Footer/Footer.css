@@ -1,0 +1,42 @@
+.footer-container {
+    background-color: #23233c;
+    color: white;
+    text-align: center;
+    font-family: Cartesian;
+    padding: 2rem 2rem;
+    width: 100%;
+}
+
+.footer-container h2 {
+    padding: 1rem;
+    padding-top: 1rem;
+    margin: auto;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+/* New styles */
+.footer-item {
+    margin-bottom: 20px;
+}
+
+.footer-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.footer-item p {
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons svg {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+

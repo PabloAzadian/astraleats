@@ -1,70 +1,82 @@
-.menu{
-    display: flex;
-    flex-direction: column;
-    gap:3rem;
-    text-align: center;
-    padding: 2rem;
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  padding: 2rem;
+}
 
+.categories-wrapper {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%; /* Ensure it takes up the full width of its parent */
+  padding: 1rem 0; /* Optional: add some vertical padding */
+  margin: auto;
+}
+
+.categories {
+  display: inline-flex;
+  gap: 2rem;
+  text-align: left;
+  white-space: nowrap; /* Prevent the items from wrapping */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 0 0 auto; /* Ensure the category items don't shrink or grow */
+}
+
+.category.active {
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.category img {
+  height: 200px; /* Adjust the image size as needed */
+  width: auto;
+  transition: transform 0.3s;
+}
+
+.category:hover img {
+  transform: scale(1.1);
+}
+
+.category h4 {
+  margin-top: 1rem;
+  color: #fff; /* Adjust the text color as needed */
+}
+
+.category-container {
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.category-container h2 {
+  margin-bottom: 2rem;
+  color: #fff; /* Adjust the text color as needed */
+}
+
+.card-displayer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+  margin: auto;
+  justify-content: center;
 }
 
 
-
-.categories {
-    display: flex;
-    /* justify-content: center; */
-    gap: 2rem;
-    text-align: left;
-    overflow-x: scroll;
-    margin: auto;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  
-  }
-  
-  .category {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .category.active {
-    border: 2px solid white;
-    border-radius: 10px;
-  }
-  
-  .category img {
-    height: 200px; /* Adjust the image size as needed */
-    width: auto;
-    transition: transform 0.3s;
-  }
-  
-  .category:hover img {
-    transform: scale(1.1);
-  }
-  
-  .category h4 {
-    margin-top: 1rem;
-    color: #fff; /* Adjust the text color as needed */
-  }
-  
-  .category-container {
-    /* background-color: #23233c; */
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: left;
-  }
-  
+@media screen and (max-width: 576px){
   .category-container h2 {
-    margin-bottom: 2rem;
-    color: #fff; /* Adjust the text color as needed */
-  }
-  
-  .card-displayer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
+    text-align: center;
+    margin: 3rem 0;
+
+}
+}

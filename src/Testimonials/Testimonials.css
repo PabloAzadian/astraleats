@@ -1,0 +1,125 @@
+.testimonials-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    background-image: url(../images/testimonialspng.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    min-height: 550px;
+    width: 100%;
+  }
+  
+  .testimonials-section h1 {
+    color: white;
+    margin-bottom: 2rem;
+  }
+  
+  .carousel {
+    overflow: hidden;
+    height: 400px; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .testimonial-card {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    width: 80%;
+    max-width: 400px; /* Adjust the width as needed */
+    background-color: #23233c;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: white;
+    border: 1px solid white;
+  }
+
+  .testimonial-card p{
+    font-family: Cartesian;
+    font-size: small;
+    padding: 1rem 0;
+  }
+  
+  .testimonial-card.active {
+    opacity: 1;
+  }
+  
+  .testimonial-person{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .testimonial-person h5{
+    margin:0
+  }
+  .avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  
+  .date-rating {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #c0bebe;
+    text-align: right;
+    justify-content: space-between;
+    font-family: Cartesian;
+    align-items: center;
+  }
+
+  .stars span{
+    font-size: 1.5rem;
+  }
+  
+ 
+
+  /* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    
+    .testimonials-section{
+        background-image: url(../images/testimonialspng4.png);
+    }
+  }
+  
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .testimonials-section{
+        background-image: url(../images/testimonialspng4.png);
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .testimonials-section{
+        background-image: url(../images/testimonialspng3.png);
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) and (max-width: 1399.98px) {
+    
+  }
+  
+  /* Extra extra large devices (larger desktops, 1400px and up) */
+  @media (min-width: 1400px) {
+    
+  }
+  
+  

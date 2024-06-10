@@ -6,18 +6,17 @@ import Starters from '../images/icons/starters.png';
 import MainDish from '../images/icons/MainDish.png';
 import Drinks from '../images/icons/drinks.png';
 import Desserts from '../images/icons/dessert.png';
-import Sides from "../images/icons/Sides.png"
+import Sides from "../images/icons/Sides.png";
 
 function Menu() {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const categories = [
-    { name: 'Starters', category: 'Starter', src:Starters },
-    { name: 'Main Dishes', category: 'Main Dishe', src:MainDish },
-    { name: "Sides", category: "Side", src:Sides},
-    { name: 'Drinks', category: 'Drink', src:Drinks },
-    { name: 'Desserts', category: 'Dessert', src:Desserts }
-    
+    { name: 'Starters', category: 'Starter', src: Starters },
+    { name: 'Main Dishes', category: 'Main Dishe', src: MainDish },
+    { name: "Sides", category: "Side", src: Sides },
+    { name: 'Drinks', category: 'Drink', src: Drinks },
+    { name: 'Desserts', category: 'Dessert', src: Desserts }
   ];
 
   const handleCategoryClick = (category) => {
@@ -27,17 +26,19 @@ function Menu() {
   return (
     <div className='menu container'>
       <h1 className='menu-title'>Menu</h1>
-      <div className='categories'>
-        {categories.map((category, index) => (
-          <div
-            key={index}
-            className={`category ${selectedCategory === category.category ? 'active' : ''}`}
-            onClick={() => handleCategoryClick(category.category)}
-          >
-            <img src={category.src}/>
-            <h4 className={`category ${selectedCategory === category.category ? 'color-gradient' : ''}`}>{category.name}</h4>
-          </div>
-        ))}
+      <div className='categories-wrapper'>
+        <div className='categories'>
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className={`category ${selectedCategory === category.category ? 'active' : ''}`}
+              onClick={() => handleCategoryClick(category.category)}
+            >
+              <img src={category.src} alt={category.name} />
+              <h4 className={`category ${selectedCategory === category.category ? 'color-gradient' : ''}`}>{category.name}</h4>
+            </div>
+          ))}
+        </div>
       </div>
       {selectedCategory ? (
         <div className='category-container'>
@@ -51,7 +52,7 @@ function Menu() {
           </div>
         </div>
       ) : (
-        <div >
+        <div>
           {categories.map((category, index) => (
             <div className='category-container' key={index}>
               <h2>{category.name}</h2>
