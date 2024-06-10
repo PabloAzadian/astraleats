@@ -30,10 +30,12 @@ function ItemCard({ item }) {
   };
 
   return (
-    <div onClick={handleShow} className='itemcard'>
-      <img src={item.imgsrc} alt={item.name} />
-      <p>{item.name}</p>
-      <p>{item.price}€</p>
+    <div >
+      <div onClick={handleShow} className='itemcard'>
+        <img src={item.imgsrc} alt={item.name} />
+        <p>{item.name}</p>
+        <p>{item.price}€</p>
+      </div>
 
       <Modal show={show} size='lg' onHide={handleClose}>
         <Modal.Header closeButton>
