@@ -86,7 +86,7 @@
 }
 
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 492px){
   .itemcard{
     margin: auto;
     padding: 0.5rem;

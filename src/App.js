@@ -17,7 +17,11 @@ function App() {
     <div className="App">
       <NavBar setScene={setScene}/>
       <header>
-        {scene== "Menu" && <Menu/>}
+        {scene== "Menu" &&
+        <>
+        <Menu/>
+        <Footer/>
+        </>}
         {scene == "Home" && <>
         <Hero setScene={setScene}/>
         <IconSlider />

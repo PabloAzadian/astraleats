@@ -67,12 +67,12 @@
 .card-displayer {
   display: flex;
   flex-flow: row wrap;
-  gap: 2rem;
+  gap: 0.5rem;
   margin: auto;
 }
 
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 492px){
   .category-container h2 {
     text-align: center;
     margin: 3rem 0;
