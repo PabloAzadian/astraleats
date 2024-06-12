@@ -59,7 +59,7 @@ const TestimonialsList = [
     imgsrc: Avatar7,
   },
   {
-    name: "Robot Rick",
+    name: "Robot Trisha",
     testimonial: "Interstellar Pizza was a delightful surprise. The bioluminescent toppings were amazing!",
     rating: 4,
     date: "2024-04-25",

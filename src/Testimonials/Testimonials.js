@@ -8,7 +8,7 @@ function Testimonials() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 7000); // Change slide every 5 seconds
+    }, 4000); // Change slide every 5 seconds
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, []);

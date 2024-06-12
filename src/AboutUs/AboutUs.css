@@ -1,0 +1,72 @@
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: left;
+    color: white;
+    font-family: Cartesian;
+}
+
+.about-main-text{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3rem 1.5rem;
+}
+
+.about-main-text h2{
+    text-align: right;
+}
+.about-image {
+    max-width: 100%;
+}
+
+.about-us-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: Supercharge;
+}
+
+.about-us-container h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: Supercharge;
+}
+
+.about-us-container p, .about-us-container ul {
+    font-size: 1rem;
+    
+}
+
+
+.about-us-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-us-container ul li {
+    margin-bottom: 0.5rem;
+}
+
+.about-us-container strong {
+    color: #f0b400;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .about-us-container p, .about-us-container ul {
+        font-size: 0.8rem;
+        
+    }
+    
+}
+
+@media screen and (min-width: 1400px)
+{   .about-us-container p, .about-us-container ul {
+    font-size: 1.15rem;
+    
+}
+
+}
