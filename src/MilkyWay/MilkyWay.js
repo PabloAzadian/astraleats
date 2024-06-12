@@ -4,7 +4,7 @@ import "./MilkyWay.css"
 import { IoRocket } from "react-icons/io5";
 
 
-function MilkyWay() {
+function MilkyWay({setScene}) {
   return (
     <div className='container '>
         <div className='delivery-section'>
@@ -19,7 +19,7 @@ function MilkyWay() {
                 Taste the flavors of the universe without ever leaving your home!
                 
                 </p>
-                <button className='color-gradient'>Order Now <IoRocket/></button>
+                <button onClick={() => setScene("Menu")} className='color-gradient'><p>Order Now <IoRocket/></p></button>
             </div>
         </div>
     </div>

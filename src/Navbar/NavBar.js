@@ -19,7 +19,7 @@ function NavBar( {setScene}) {
             <Nav className="m-auto">
                 <Nav.Link onClick={() => setScene("Home")}href="#home">HOME</Nav.Link>
                 <Nav.Link onClick={() => setScene("Menu")}href="#link">MENU</Nav.Link>
-                <Nav.Link href="#uberuns">About Us</Nav.Link>
+                <Nav.Link onClick={() => setScene("AboutUs")}href="#aboutus">About Us</Nav.Link>
             </Nav>
             </Navbar.Collapse>
         </Container>

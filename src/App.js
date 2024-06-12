@@ -10,6 +10,7 @@ import PortalDelivery from './PortalDelivery/PortalDelivery';
 import Menu from './Menu/Menu';
 import Testimonials from "./Testimonials/Testimonials";
 import Footer from "./Footer/Footer"
+import AboutUs from "./AboutUs/AboutsUs";
 
 function App() {
   const [scene, setScene] = useState("Home")
@@ -17,22 +18,18 @@ function App() {
     <div className="App">
       <NavBar setScene={setScene}/>
       <header>
-        {scene== "Menu" &&
-        <>
-        <Menu/>
-        <Footer/>
-        </>}
+        {scene== "AboutUs" &&<AboutUs/>}
+        {scene== "Menu" &&<Menu/>}
         {scene == "Home" && <>
         <Hero setScene={setScene}/>
         <IconSlider />
-        <MilkyWay/>
+        <MilkyWay setScene={setScene}/>
         <PortalDelivery/>
         <Testimonials/>
-        
-        <Footer/>
         </>}
         
       </header>
+      <Footer />
     </div>
   );
 }

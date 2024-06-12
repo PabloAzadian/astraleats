@@ -48,11 +48,23 @@
     font-size: 1.5rem;
     text-align: center;
     padding: 1.5rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for background color and transform */
 }
 
 .content button p {
     margin: 0;
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color */
 }
+
+.content button:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1); /* Apply gradient background on hover */
+}
+
+.content button:hover p {
+    color: #5b5b9c !important; /* Change color of <p> element to default background color on hover */
+}
+
 
 @keyframes gradient {
     0% {

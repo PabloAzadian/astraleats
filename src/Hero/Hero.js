@@ -21,7 +21,7 @@ function Hero({setScene}) {
                 
                 <div className='buttons'>
                     <button onClick={() => setScene("Menu")}> <p className='color-gradient2'>Our Menu</p></button>
-                    <button> <p className='color-gradient2'>About Us</p></button>
+                    <button onClick={() => setScene("AboutUs")}> <p className='color-gradient2'>About Us</p></button>
                 </div>
                 
             </div>
