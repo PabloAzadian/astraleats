@@ -11,6 +11,7 @@ function Hero() {
 
   return (
     <div className='container hero'>
+<<<<<<< HEAD
       <div className='hero-container'>
         <div className='content'>
           <h1 className='name color-gradient'>Astral Eats</h1>
@@ -24,6 +25,27 @@ function Hero() {
             <button onClick={() => navigate('/menu')}> <p className='color-gradient2'>Our Menu</p></button>
             <button onClick={() => navigate('/about-us')}> <p className='color-gradient2'>About Us</p></button>
           </div>
+=======
+        <div className='hero-container'>
+            <div className='content'>
+                <h1 className='name color-gradient'>Astral Eats</h1>
+                <div className='infos'>
+                <p className='lema'>Martian Food delivered to your home planet</p>
+                <p><FaLocationDot /> Martian Street 345, 523369</p>
+                <p><TbClockHour5/> 24/7/365</p>
+                <p><BsFillTelephoneFill/> 515269 5161 333225</p>
+                </div>
+                
+                <div className='buttons'>
+                    <button onClick={() => setScene("Menu")}> <p className='color-gradient2'>Our Menu</p></button>
+                    <button onClick={() => setScene("AboutUs")}> <p className='color-gradient2'>About Us</p></button>
+                </div>
+                
+            </div>
+            <div>
+                <img src={HeroImg} />
+            </div>
+>>>>>>> 9aa6c990ebcc48314762507fe4e0aa78b6a0f122
         </div>
         <div>
           <img src={HeroImg} />
