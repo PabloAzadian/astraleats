@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ItemCard.css';
+import { IoRocket } from "react-icons/io5";
 
 function ItemCard({ item }) {
   const [show, setShow] = useState(false);
@@ -37,7 +38,7 @@ function ItemCard({ item }) {
         <p>{item.price}€</p>
       </div>
 
-      <Modal show={show} size='lg' onHide={handleClose}>
+      <Modal show={show} size='lg' data-bs-theme="dark" onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{item.name}</Modal.Title>
         </Modal.Header>
@@ -50,7 +51,7 @@ function ItemCard({ item }) {
               <p>{item.description}</p>
               <div className='extras-list'>
               {item.customizations.map((extra) => (
-                <div className="extra" key={extra.id}>
+                <div className={`extra ${selectedExtras.includes(extra) ? 'color-gradient' : ''}`} key={extra.id}>
                   
                     <input
                       type="checkbox"
@@ -73,7 +74,7 @@ function ItemCard({ item }) {
         </Modal.Body>
         <Modal.Footer>
         <p>Total: {calculateTotalPrice()}€</p>
-        <button onClick={handleClose}>Add to Cart</button>
+        <button onClick={handleClose}><p>Add to Cart <IoRocket /></p></button>
         </Modal.Footer>
       </Modal>
     </div>

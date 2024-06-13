@@ -32,6 +32,46 @@
     cursor: pointer;
   }
 
+  .itemcard:hover p{
+    animation: gradient 5s infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+        color: #f7f3e1;
+    }
+    10% {
+        color: #f9e0d9;
+    }
+    20% {
+        color: #fbc7c1;
+    }
+    30% {
+        color: #fda6a1;
+    }
+    40% {
+        color: #fb7b83;
+    }
+    50% {
+        color: #ef3a98;
+    }
+    60% {
+        color: #fb7b83;
+    }
+    70% {
+        color: #fda6a1;
+    }
+    80% {
+        color: #fbc7c1;
+    }
+    90% {
+        color: #f9e0d9;
+    }
+    100% {
+        color: #f7f3e1;
+    }
+}
+
   .modal-content{
     font-family: Cartesian;
     background-color: #23233c !important;
@@ -63,16 +103,24 @@
     font-size: 1rem;
     text-align: center;
     padding: 0.8rem;
+    transition: transform 0.5s ease; 
+    
 }
+.modal-footer p {
+  margin: 0;
+}
+
 
 .modal-footer button:hover {
-  transform: translateY(-5px); 
-  transition: transform 0.5s ease; 
+  transform: translateY(-10px);
+  background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1); /* Apply gradient background on hover */
 }
 
-.modal-footer button {
-  transition: transform 0.5s ease; 
+.modal-footer button:hover p {
+  color: #5b5b9c !important; /* Change color of <p> element to default background color on hover */
 }
+
+
 
 .extras-list{
   padding: 1rem 0;
@@ -88,7 +136,7 @@
 
 @media screen and (max-width: 492px){
   .itemcard{
-    
+    margin: auto;
     padding: 0.5rem;
   }
 
