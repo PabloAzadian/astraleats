@@ -131,6 +131,11 @@
 .extra{
   display: flex;
   gap: 1rem;
+  cursor: pointer;
+}
+
+.extra p{
+  margin: 0;
 }
 
 

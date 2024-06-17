@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ItemCard.css';
 import { IoRocket } from "react-icons/io5";
+import { useShoppingCart } from '../ShoppingCartContext';  // Import the context
 
 function ItemCard({ item }) {
   const [show, setShow] = useState(false);
   const [selectedExtras, setSelectedExtras] = useState([]);
+  const { setShoppingCart } = useShoppingCart();  // Use the context
 
   const handleClose = () => {
     setShow(false);
@@ -25,13 +27,27 @@ function ItemCard({ item }) {
     });
   };
 
+  const handleAddToCart = () => {
+    const updatedItem = {
+      name: item.name,
+      imgSrc: item.imgsrc,
+      extras: selectedExtras,
+      price: calculateTotalPrice(),
+    };
+
+    setShoppingCart((prevCart) => [...prevCart, updatedItem]);
+    setShow(false);
+    setSelectedExtras([]);
+    alert(`Successfully added ${item.name} to the Cart!`);
+  };
+
   const calculateTotalPrice = () => {
     const extrasTotal = selectedExtras.reduce((acc, extra) => acc + extra.price, 0);
     return (item.price + extrasTotal).toFixed(2);
   };
 
   return (
-    <div >
+    <div>
       <div onClick={handleShow} className='itemcard'>
         <img src={item.imgsrc} alt={item.name} />
         <p>{item.name}</p>
@@ -50,31 +66,34 @@ function ItemCard({ item }) {
             <div className='col-12 col-sm-6'>
               <p>{item.description}</p>
               <div className='extras-list'>
-              {item.customizations.map((extra) => (
-                <div className={`extra ${selectedExtras.includes(extra) ? 'color-gradient' : ''}`} key={extra.id}>
-                  
+                {item.customizations.map((extra) => (
+                  <label
+                    className={`extra ${selectedExtras.includes(extra) ? 'color-gradient' : ''}`}
+                    key={extra.id}
+                  >
                     <input
                       type="checkbox"
                       value={extra.name}
                       onChange={() => handleExtraChange(extra)}
+                      checked={selectedExtras.includes(extra)}
                     />
-                    {extra.name} (+{extra.price}€)
-                  
-                </div>
-              ))}
-            </div>
-              
+                    <span>{extra.name} (+{extra.price}€)</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
           <div>
-              <p>Allergens: {item.allergens}</p>
-              <p>Calories: {item.calories}</p>
-              <p>Nutritional Info (P/F/C): {item.proteins}g/{item.fats}g/{item.carbs}g</p>
+            <p><strong>Allergens:</strong> {item.allergens}</p>
+            <p><strong>Calories:</strong> {item.calories}</p>
+            <p><strong>Nutritional Info (P/F/C):</strong> {item.proteins}g/{item.fats}g/{item.carbs}g</p>
           </div>
         </Modal.Body>
         <Modal.Footer>
-        <p>Total: {calculateTotalPrice()}€</p>
-        <button onClick={handleClose}><p>Add to Cart <IoRocket /></p></button>
+          <p>Total: {calculateTotalPrice()}€</p>
+          <Button variant="primary" onClick={handleAddToCart}>
+            Add to Cart <IoRocket />
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>

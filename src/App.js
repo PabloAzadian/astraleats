@@ -9,9 +9,11 @@ import Menu from './Menu/Menu';
 import Testimonials from "./Testimonials/Testimonials";
 import Footer from "./Footer/Footer";
 import AboutUs from "./AboutUs/AboutUs";
+import { ShoppingCartProvider } from './ShoppingCartContext';
 
 function App() {
   return (
+    <ShoppingCartProvider>
     <Router>
       <div className="App">
         <NavBar />
@@ -25,6 +27,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ShoppingCartProvider>
   );
 }
 

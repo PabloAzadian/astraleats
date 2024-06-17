@@ -1,0 +1,69 @@
+.side-cart-item .card{ 
+    max-width: 100%;
+    cursor:default;
+    color: white;
+    width: 450px;
+}
+
+.side-cart-item .card:hover{ 
+    
+    transform: scale(1.0);
+}
+
+.side-cart-item .card img {
+    height: 150px;
+    width: 150px;
+    padding: 0.5rem;
+    background-image: url(../images/pattern\ 111.png);
+    background-size: 350px;
+}
+
+.side-cart-item .card-title {
+    max-width: 100%;
+    display: flex;
+    overflow: hidden;
+    font-weight: 500;
+    max-height: 40px;
+    justify-content: space-between;
+}
+.card-title span{
+    font-size: 1rem;
+}
+.card-title button{
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: white;
+    vertical-align:baseline;
+}
+
+.card-title button:hover{
+    transform: scale(1.6);
+    transition: transform 0.1s ease-in-out;
+}
+
+
+.sidecart-item-modifiers{
+    font-size: small;
+    max-height: 40px;
+}
+
+.sidecart-item-modifiers p {
+    max-height: 12px !important;
+    font-size: 10px;
+    margin: 0;
+    margin-top: 2px !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-body {
+    background-image: url(../images/pattern\ 111.png);
+    background-size: 350px;
+    font-weight: 600;
+}
+
+.prices{
+    font-size: 1rem;
+}
+

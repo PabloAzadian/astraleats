@@ -1,8 +1,15 @@
-.navbar {
+.navbar-expand-lg {
     background-color: #23233c;
     display: flex;
     align-items: center; /* Center contents vertically */
     width: 100%;
+    position: fixed !important;
+    top: 0;
+    z-index: 2;
+    opacity: 0.8;
+}
+.navbar-placeholder{
+    height: 76px;
 }
 
 .nav-link, .navbar-brand {
@@ -14,6 +21,7 @@
 
 .nav-link:hover, .navbar-brand:hover {
     transform: scale(1.1) translateY(-5px); /* Scale up by 10% and move up by 5 pixels */
+    cursor: pointer;
 }
 
 .navbar-toggler {
@@ -36,4 +44,25 @@
     text-decoration: none;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 1); /* White outline */
+}
+
+.sidebar-modal {
+    width: 100%; /* Adjust the width as needed */
+    margin:0 !important;
+    height: 100vh; /* Full height of viewport */
+    display: flex;
+    position: fixed !important;
+    right: 0;
+    top: 0;
+}
+
+.cart-item-quantity{
+    background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1);
+    border-radius: 5px;
+    position: absolute;
+    padding: 0 0.5rem;
+    color: #5b5b9c;
+    z-index: 0;
+    
+    border: none;
 }

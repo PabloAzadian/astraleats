@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./Testimonials.css";
-import testimonials from '../TestimonialsList'; // Make sure to import the testimonials array
+import testimonials from '../TestimonialsList'; 
 
 function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -8,9 +8,9 @@ function Testimonials() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 4000); // Change slide every 5 seconds
+    }, 4000); 
 
-    return () => clearInterval(interval); // Clear interval on component unmount
+    return () => clearInterval(interval); 
   }, []);
 
   const renderStars = (rating) => {
