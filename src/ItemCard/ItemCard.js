@@ -3,12 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ItemCard.css';
 import { IoRocket } from "react-icons/io5";
-import { useShoppingCart } from '../ShoppingCartContext';  // Import the context
+import { useShoppingCart } from '../ShoppingCartContext';  
+
 
 function ItemCard({ item }) {
   const [show, setShow] = useState(false);
   const [selectedExtras, setSelectedExtras] = useState([]);
-  const { setShoppingCart } = useShoppingCart();  // Use the context
+  const { setShoppingCart } = useShoppingCart();  
 
   const handleClose = () => {
     setShow(false);

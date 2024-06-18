@@ -60,7 +60,7 @@ function NavBar() {
         </Container>
       </Navbar>
 
-      <Modal dialogClassName="sidebar-modal" show={show} onHide={() => setShow(false)}>
+      <Modal dialogClassName="sidebar-modal"  data-bs-theme="dark" show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>
             Shopping Cart
@@ -72,7 +72,7 @@ function NavBar() {
           )) : (
             <div className='empty-cart'>
               <h3>Looks like your Cart is empty {":("}</h3>
-              <button onClick={() => setShow(false)}>Keep Browsing</button>
+              <button onClick={() => setShow(false)}><span>Keep Browsing</span></button>
             </div>
           )}
         </Modal.Body>

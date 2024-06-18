@@ -10,6 +10,7 @@ import Testimonials from "./Testimonials/Testimonials";
 import Footer from "./Footer/Footer";
 import AboutUs from "./AboutUs/AboutUs";
 import { ShoppingCartProvider } from './ShoppingCartContext';
+import CheckOut from "./CheckOut/CheckOut";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs/>} />
             <Route path="/menu" element={<Menu />} />
+            <Route path="/checkout" element={<CheckOut />} />
           </Routes>
         </header>
         <Footer />

@@ -1,0 +1,50 @@
+.background-container{
+    background-color: #21223E;
+}
+.checkout-container {
+    padding: 2rem;
+    
+}
+.checkout-title{
+    padding: 2rem;
+}
+
+.form-container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 2rem;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-family: cartesian;
+}
+
+.form-title {
+    padding: 2rem;
+    font-family: SuperCharge;
+}
+
+.pay-button button {
+    font-family: Supercharge !important;
+    background-color: #5b5b9c;
+    color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.7rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for background color and transform */
+}
+
+.pay-button button p {
+    margin: 0;
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color */
+}
+
+.pay-button button:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1); /* Apply gradient background on hover */
+}
+
+.pay-button button:hover p {
+    color: #5b5b9c !important; /* Change color of <p> element to default background color on hover */
+}

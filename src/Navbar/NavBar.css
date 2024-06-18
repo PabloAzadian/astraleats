@@ -31,6 +31,9 @@
 .navbar-expand {
     margin-left: auto; /* Push the navbar-toggler to the right */
 }
+.navbar-brand {
+    position: relative;
+}
 
 .navbar-brand h1 {
     margin: 0;
@@ -47,7 +50,7 @@
 }
 
 .sidebar-modal {
-    width: 100%; /* Adjust the width as needed */
+    min-width: 30vw; /* Adjust the width as needed */
     margin:0 !important;
     height: 100vh; /* Full height of viewport */
     display: flex;
@@ -56,13 +59,66 @@
     top: 0;
 }
 
-.cart-item-quantity{
+.cart-item-quantity {
     background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1);
-    border-radius: 5px;
+    border-radius: 50%;
     position: absolute;
-    padding: 0 0.5rem;
+    top: 0px; /* Adjust this value as needed */
+    right: -10px; /* Adjust this value as needed */
+    padding: 0.2rem 0.5rem; /* Adjust this value as needed */
     color: #5b5b9c;
-    z-index: 0;
-    
+    z-index: 1;
     border: none;
+    font-size:1rem; /* Adjust the font size as needed */
+  }
+
+  @media screen and (max-width:500px) {
+    .modal-footer h5 {
+        font-size: 1rem;
+    }
+    .modal-footer button {
+        font-size:0.8rem !important;
+        padding: 0.5rem !important;
+    }
+  }
+
+  
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.empty-cart h3{
+    padding: 2rem;
+    text-align: center;
+}
+
+.empty-cart button{
+    font-family: Supercharge !important;
+    background-color: #5b5b9c;
+    color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1rem;
+    margin: auto;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; 
+
+}
+
+.empty-cart button span {
+    margin: 0;
+    transition: color 0.3s ease-in-out; /* Smooth transition for text color */
+}
+
+.empty-cart button:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1); /* Apply gradient background on hover */
+}
+
+.empty-cart button:hover span {
+    color: #5b5b9c !important; /* Change color of <p> element to default background color on hover */
 }
