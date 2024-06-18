@@ -53,6 +53,7 @@
     min-width: 30vw; /* Adjust the width as needed */
     margin:0 !important;
     height: 100vh; /* Full height of viewport */
+    max-height: 100vh;
     display: flex;
     position: fixed !important;
     right: 0;
