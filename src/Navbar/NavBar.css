@@ -52,13 +52,13 @@
 .sidebar-modal {
     min-width: 30vw; /* Adjust the width as needed */
     margin:0 !important;
-    height: 100vh; /* Full height of viewport */
+    min-height: 100vh; /* Full height of viewport */
     max-height: 100vh;
     display: flex;
     position: fixed !important;
     right: 0;
     top: 0;
-    overflow-x: scroll;
+   
 }
 
 .cart-item-quantity {
@@ -75,20 +75,17 @@
   }
 
   @media screen and (max-width:500px) {
-    .modal-footer h5 {
+    .sidebar-modal .modal-footer h5 {
         font-size: 1rem;
         
     }
-    .modal-footer button {
+    .sidebar-modal .modal-footer button {
         font-size:0.8rem !important;
         padding: 0.5rem !important;
     }
-
-    .modal-footer {
-        position: fixed;
-        bottom: 0;
+    .sidebar-modal .modal-body{
+        max-height: 80%;
     }
-
     
   }
 

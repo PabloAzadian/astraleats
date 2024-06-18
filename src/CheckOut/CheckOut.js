@@ -66,7 +66,7 @@ function CheckOut() {
     if (promoCode.toLowerCase() === 'portal 2024') {
       // Apply promo code logic
       const updatedOptions = [...deliveryOptions];
-      const portalDeliveryOption = updatedOptions.find(option => option.name === 'Portal Delivery');
+      const portalDeliveryOption = updatedOptions.find(option => option.name === 'Portal Delivery (instant)');
       if (portalDeliveryOption) {
         portalDeliveryOption.cost = 0; // Set Portal Delivery cost to 0
         setDeliveryOptions(updatedOptions);
