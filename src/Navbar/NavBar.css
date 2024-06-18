@@ -76,11 +76,19 @@
   @media screen and (max-width:500px) {
     .modal-footer h5 {
         font-size: 1rem;
+        
     }
     .modal-footer button {
         font-size:0.8rem !important;
         padding: 0.5rem !important;
     }
+
+    .modal-footer {
+        position: fixed;
+        bottom: 0;
+    }
+
+    
   }
 
   
