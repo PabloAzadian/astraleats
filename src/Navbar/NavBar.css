@@ -75,6 +75,7 @@
   }
 
   @media screen and (max-width:500px) {
+
     .sidebar-modal .modal-footer h5 {
         font-size: 1rem;
         
@@ -84,7 +85,7 @@
         padding: 0.5rem !important;
     }
     .sidebar-modal .modal-body{
-        max-height: 80%;
+        max-height: 70%;
     }
     
   }
