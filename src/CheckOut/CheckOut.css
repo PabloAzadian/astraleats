@@ -1,5 +1,5 @@
 .background-container{
-    background-color: #21223E;
+    background-color: #272838;
 }
 .checkout-container {
     padding: 2rem;
@@ -50,14 +50,23 @@
     color: #5b5b9c !important; /* Change color of <p> element to default background color on hover */
 }
 
-.apply-button button {
+.apply-button {
     font-family: Supercharge !important;
-    background-color: #5b5b9c;
-    color: aliceblue;
-    
+    background-color: #5b5b9c !important;
+    color: aliceblue !important;
     border: none;
     font-size: 1rem;
     text-align: center;
     padding: 0.7rem;
+    transition: background-color 0.3s ease-in-out
 
+}
+
+.apply-button:hover {
+    background: linear-gradient(to right, #ef3a98, #fb7b83, #fda6a1, #fbc7c1, #f9e0d9, #f7f3e1); /* Apply gradient background on hover */
+    color: #5b5b9c !important;
+}
+
+.error {
+    color: rgb(175, 37, 37);
 }

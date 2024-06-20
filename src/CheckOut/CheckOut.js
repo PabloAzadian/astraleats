@@ -31,6 +31,7 @@ function CheckOut() {
   const [showSpinner, setShowSpinner] = useState(false);
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
+  const [promoFailed, setPromoFailed] = useState(false);
   const [deliveryOptions, setDeliveryOptions] = useState([
     { name: 'Spaceship Delivery (30 min)', cost: 5.00 },
     { name: 'Portal Delivery (instant)', cost: 15.00 }, // Default cost for Portal Delivery
@@ -66,17 +67,11 @@ function CheckOut() {
 
   const applyPromoCode = () => {
     if (promoCode.toLowerCase() === 'portal2024') {
-      // Apply promo code logic
-      // const updatedOptions = [...deliveryOptions];
       setPromoApplied(true);
-  //     const portalDeliveryOption = updatedOptions.find(option => option.name === 'Portal Delivery (instant)');
-  //     if (portalDeliveryOption) {
-  //       portalDeliveryOption.cost = 0; // Set Portal Delivery cost to 0
-  //       setDeliveryOptions(updatedOptions);
-  //       setPromoApplied(true);
-  //     }
-  //   } else {
-  //     // Handle other promo codes if needed
+      setPromoFailed(false)
+    } else {
+      setPromoFailed(true)
+      setPromoApplied(false);
     }
   };
 
@@ -251,6 +246,7 @@ function CheckOut() {
                       </Button>
                     </InputGroup>
                     {promoApplied && <span className='color-gradient'>You get FREE Portal Delivery!</span>}
+                    {promoFailed && <span className='error'>Invalid Code</span>}
                   </Form.Group>
                 </Row>
 
