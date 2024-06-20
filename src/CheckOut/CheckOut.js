@@ -36,6 +36,8 @@ function CheckOut() {
     { name: 'Portal Delivery (instant)', cost: 15.00 }, // Default cost for Portal Delivery
   ]);
   const [selectedDeliveryOption, setSelectedDeliveryOption] = useState(deliveryOptions[0]);
+  const [address, setAddress] = useState('');
+  const [price, setPrice] = useState(0);
 
   const handleAddressSubmit = e => {
     e.preventDefault();
@@ -50,26 +52,31 @@ function CheckOut() {
     e.preventDefault();
     const form = e.currentTarget;
     if (form.checkValidity()) {
+    
+
       setShowSpinner(true); // Show loading spinner
       await simulatePayment(); // Simulate payment processing time
       setShowSpinner(false); // Hide loading spinner
-      setShowPayment(true); // Show payment success message
+
+      setShowPayment(true);
+    } else {
+      setValidatedPayment(true);
     }
-    setValidatedPayment(true);
   };
 
   const applyPromoCode = () => {
     if (promoCode.toLowerCase() === 'portal2024') {
       // Apply promo code logic
-      const updatedOptions = [...deliveryOptions];
-      const portalDeliveryOption = updatedOptions.find(option => option.name === 'Portal Delivery (instant)');
-      if (portalDeliveryOption) {
-        portalDeliveryOption.cost = 0; // Set Portal Delivery cost to 0
-        setDeliveryOptions(updatedOptions);
-        setPromoApplied(true);
-      }
-    } else {
-      // Handle other promo codes if needed
+      // const updatedOptions = [...deliveryOptions];
+      setPromoApplied(true);
+  //     const portalDeliveryOption = updatedOptions.find(option => option.name === 'Portal Delivery (instant)');
+  //     if (portalDeliveryOption) {
+  //       portalDeliveryOption.cost = 0; // Set Portal Delivery cost to 0
+  //       setDeliveryOptions(updatedOptions);
+  //       setPromoApplied(true);
+  //     }
+  //   } else {
+  //     // Handle other promo codes if needed
     }
   };
 
@@ -85,6 +92,9 @@ function CheckOut() {
       totalPrice += parseFloat(item.price); // Ensure item.price is treated as a number
     }
     // Add selected delivery option cost to the total price
+    if (promoApplied & selectedDeliveryOption.name =="Portal Delivery (instant)"){
+      totalPrice -= 15
+    }
     totalPrice += selectedDeliveryOption.cost;
     return totalPrice.toFixed(2);
   };
@@ -110,6 +120,7 @@ function CheckOut() {
                       type='text'
                       placeholder='Enter street name'
                       required
+                      name='streetName'
                     />
                     <Form.Control.Feedback type='invalid'>
                       Please provide the street name.
@@ -123,6 +134,7 @@ function CheckOut() {
                       type='text'
                       placeholder='Enter house number'
                       required
+                      name='houseNumber'
                     />
                     <Form.Control.Feedback type='invalid'>
                       Please provide the house number.
@@ -134,6 +146,7 @@ function CheckOut() {
                       type='text'
                       placeholder='Enter postcode'
                       required
+                      name='postcode'
                     />
                     <Form.Control.Feedback type='invalid'>
                       Please provide the postcode.
@@ -147,6 +160,7 @@ function CheckOut() {
                       type='text'
                       placeholder='Enter city'
                       required
+                      name='city'
                     />
                     <Form.Control.Feedback type='invalid'>
                       Please provide the city.
@@ -231,7 +245,8 @@ function CheckOut() {
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                       />
-                      <Button variant='outline-secondary' onClick={applyPromoCode}>
+                      
+                      <Button className="apply-button" variant='outline-secondary' onClick={applyPromoCode}>
                         Apply
                       </Button>
                     </InputGroup>
@@ -267,34 +282,37 @@ function CheckOut() {
                     <Form.Group as={Col} md='6' className='mb-3'>
                       <Form.Label>Card Number</Form.Label>
                       <Form.Control
-                        type='card'
+                        type='text'
                         placeholder='Enter card number'
                         required
+                        pattern='[0-9]{13,16}' // Simple pattern for credit card numbers (13-16 digits)
                       />
                       <Form.Control.Feedback type='invalid'>
-                        Please provide a card number.
+                        Please provide a valid card number (13-16 digits).
                       </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md='3' className='mb-3'>
-                      <Form.Label>Expiration Date</Form.Label>
+                      <Form.Label>Exp. Date</Form.Label>
                       <Form.Control
                         type='text'
                         placeholder='MM/YY'
                         required
+                        pattern='(0[1-9]|1[0-2])\/[0-9]{2}' // Pattern for expiration date in MM/YY format
                       />
                       <Form.Control.Feedback type='invalid'>
-                        Please provide the expiration date.
+                        Please provide a valid expiration date (MM/YY).
                       </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md='3' className='mb-3'>
                       <Form.Label>CVV</Form.Label>
                       <Form.Control
-                        type='number'
+                        type='text'
                         placeholder='CVV'
                         required
+                        pattern='[0-9]{3,4}' // Pattern for CVV (3-4 digits)
                       />
                       <Form.Control.Feedback type='invalid'>
-                        Please provide the CVV.
+                        Please provide a valid CVV (3-4 digits).
                       </Form.Control.Feedback>
                     </Form.Group>
                   </Row>
@@ -308,23 +326,26 @@ function CheckOut() {
                     </Button>
                   </div>
                 </Form>
+
               </div>
             )}
 
             {showPayment && (
-              <Modal show={true} onHide={handleClosePaymentModal}>
+              <Modal show={showPayment} onHide={handleClosePaymentModal}>
                 <Modal.Header closeButton>
                   <Modal.Title>Payment Successful</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>Thank you for your purchase! Your order will be delivered soon.</p>
+                  <p>Your order has been placed!</p>
+                  <p>Delivering {selectedDeliveryOption.name.includes('instant') ? 'instantly' : 'in 30 mins'} to your doorstep!</p>
+                  <p>Total paid: ${calculateTotalPrice()}</p>
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant='secondary' onClick={handleClosePaymentModal}>
                     Close
                   </Button>
                 </Modal.Footer>
-              </Modal>
+             </Modal>
             )}
           </div>
         ) : (

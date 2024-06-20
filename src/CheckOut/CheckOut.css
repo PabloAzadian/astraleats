@@ -49,3 +49,15 @@
 .pay-button button:hover p {
     color: #5b5b9c !important; /* Change color of <p> element to default background color on hover */
 }
+
+.apply-button button {
+    font-family: Supercharge !important;
+    background-color: #5b5b9c;
+    color: aliceblue;
+    
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.7rem;
+
+}
