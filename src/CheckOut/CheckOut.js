@@ -24,8 +24,8 @@ function simulatePayment() {
 
 function CheckOut() {
   const { shoppingCart, setShoppingCart } = useShoppingCart();
-  const [validated, setValidated] = useState(false);
-  const [validated2, setValidated2] = useState(false);
+  const [validatedAddress, setValidatedAddress] = useState(false);
+  const [validatedPayment, setValidatedPayment] = useState(false);
   const [showPaymentOptions, setShowPaymentOptions] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -37,33 +37,29 @@ function CheckOut() {
   ]);
   const [selectedDeliveryOption, setSelectedDeliveryOption] = useState(deliveryOptions[0]);
 
-  const handleInputChange = e => {
-    const form = e.currentTarget.form;
+  const handleAddressSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
     if (form.checkValidity()) {
       setShowPaymentOptions(true);
-    } else {
-      setShowPaymentOptions(false);
     }
-    setValidated(true);
+    setValidatedAddress(true);
   };
 
-  const handlePayment = async e => {
+  const handlePaymentSubmit = async e => {
     e.preventDefault();
-    const form = e.currentTarget.form;
+    const form = e.currentTarget;
     if (form.checkValidity()) {
       setShowSpinner(true); // Show loading spinner
       await simulatePayment(); // Simulate payment processing time
       setShowSpinner(false); // Hide loading spinner
-
       setShowPayment(true); // Show payment success message
-      setShoppingCart([]); // Empty the shopping cart upon successful payment
-    } else {
-      setValidated2(true);
     }
+    setValidatedPayment(true);
   };
 
   const applyPromoCode = () => {
-    if (promoCode.toLowerCase() === 'portal 2024') {
+    if (promoCode.toLowerCase() === 'portal2024') {
       // Apply promo code logic
       const updatedOptions = [...deliveryOptions];
       const portalDeliveryOption = updatedOptions.find(option => option.name === 'Portal Delivery (instant)');
@@ -76,7 +72,6 @@ function CheckOut() {
       // Handle other promo codes if needed
     }
   };
-
 
   const removeItem = index => {
     const updatedCart = [...shoppingCart];
@@ -94,6 +89,11 @@ function CheckOut() {
     return totalPrice.toFixed(2);
   };
 
+  const handleClosePaymentModal = () => {
+    setShowPayment(false);
+    setShoppingCart([]); 
+  };
+
   return (
     <div className='background-container'>
       <div className='checkout-container container'>
@@ -102,79 +102,76 @@ function CheckOut() {
           <div className='form-container'>
             <div>
               <h2 className='form-title'>Delivery Address</h2>
-              <Row className='mb-3'>
-                <Form.Group as={Col} md='12' className='mb-3'>
+              <Form noValidate validated={validatedAddress} onSubmit={handleAddressSubmit}>
+                <Row className='mb-3'>
+                  <Form.Group as={Col} md='12' className='mb-3'>
                     <Form.Label>Street Name</Form.Label>
                     <Form.Control
-                        type='text'
-                        placeholder='Enter street name'
-                        required
+                      type='text'
+                      placeholder='Enter street name'
+                      required
                     />
                     <Form.Control.Feedback type='invalid'>
-                        Please provide the street name.
+                      Please provide the street name.
                     </Form.Control.Feedback>
-                    </Form.Group>
-             </Row>
-              <Row className='mb-3'>
-                
-                <Form.Group as={Col} md='6' className='mb-3'>
-                  <Form.Label>House Number</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='Enter house number'
-                    required
-                  />
-                  <Form.Control.Feedback type='invalid'>
-                    Please provide the house number.
-                  </Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group as={Col} md='6' className='mb-3'>
-                  <Form.Label>Postcode</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='Enter postcode'
-                    required
-                  />
-                  <Form.Control.Feedback type='invalid'>
-                    Please provide the postcode.
-                  </Form.Control.Feedback>
-                </Form.Group>
-              </Row>
-              <Row className='mb-3'>
-                
-                <Form.Group as={Col} md='6' className='mb-3'>
-                  <Form.Label>City</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='Enter city'
-                    required
-                  />
-                  <Form.Control.Feedback type='invalid'>
-                    Please provide the city.
-                  </Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group as={Col} md='6' className='mb-3'>
-                  <Form.Label>Floor (optional)</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='Type floor number'
-                  />
-                </Form.Group>
-              </Row>
-              
-              <Row className='mb-3'>
-                <Form.Group as={Col} md='12' >
-                  <Form.Label>Add Note (optional)</Form.Label>
-                  <Form.Control
-                    as='textarea'
-                    rows={3}
-                    placeholder='e.g. Please do not ring the bell. Baby is sleeping.'
-                  />
-                </Form.Group>
-              </Row>
+                  </Form.Group>
+                </Row>
+                <Row className='mb-3'>
+                  <Form.Group as={Col} md='6' className='mb-3'>
+                    <Form.Label>House Number</Form.Label>
+                    <Form.Control
+                      type='text'
+                      placeholder='Enter house number'
+                      required
+                    />
+                    <Form.Control.Feedback type='invalid'>
+                      Please provide the house number.
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                  <Form.Group as={Col} md='6' className='mb-3'>
+                    <Form.Label>Postcode</Form.Label>
+                    <Form.Control
+                      type='text'
+                      placeholder='Enter postcode'
+                      required
+                    />
+                    <Form.Control.Feedback type='invalid'>
+                      Please provide the postcode.
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                </Row>
+                <Row className='mb-3'>
+                  <Form.Group as={Col} md='6' className='mb-3'>
+                    <Form.Label>City</Form.Label>
+                    <Form.Control
+                      type='text'
+                      placeholder='Enter city'
+                      required
+                    />
+                    <Form.Control.Feedback type='invalid'>
+                      Please provide the city.
+                    </Form.Control.Feedback>
+                  </Form.Group>
+                  <Form.Group as={Col} md='6' className='mb-3'>
+                    <Form.Label>Floor (optional)</Form.Label>
+                    <Form.Control
+                      type='text'
+                      placeholder='Type floor number'
+                    />
+                  </Form.Group>
+                </Row>
+                <Row className='mb-3'>
+                  <Form.Group as={Col} md='12'>
+                    <Form.Label>Add Note (optional)</Form.Label>
+                    <Form.Control
+                      as='textarea'
+                      rows={3}
+                      placeholder='e.g. Please do not ring the bell. Baby is sleeping.'
+                    />
+                  </Form.Group>
+                </Row>
 
-              <h2 className='form-title'>Personal Information</h2>
-              <Form noValidate validated={validated}>
+                <h2 className='form-title'>Personal Information</h2>
                 <Row className='mb-3'>
                   <Form.Group as={Col} md='6' className='mb-3' controlId='validationCustom01'>
                     <Form.Label>First name</Form.Label>
@@ -217,15 +214,14 @@ function CheckOut() {
 
                 <Row className='mb-3'>
                   <Form.Group as={Col} md='6' className='mb-3'>
-                  <Form.Label>Delivery Option</Form.Label>
+                    <Form.Label>Delivery Option</Form.Label>
                     <Form.Control as='select' onChange={(e) => setSelectedDeliveryOption(JSON.parse(e.target.value))}>
                       {deliveryOptions.map(option => (
                         <option key={option.name} value={JSON.stringify(option)}>{option.name} ${option.cost.toFixed(2)}</option>
                       ))}
                     </Form.Control>
-
                   </Form.Group>
-                
+
                   <Form.Group as={Col} md='6'>
                     <Form.Label>Promo Code</Form.Label>
                     <InputGroup className='mb-3'>
@@ -239,6 +235,7 @@ function CheckOut() {
                         Apply
                       </Button>
                     </InputGroup>
+                    {promoApplied && <span className='color-gradient'>You get FREE Portal Delivery!</span>}
                   </Form.Group>
                 </Row>
 
@@ -253,17 +250,90 @@ function CheckOut() {
                   </Form.Group>
                   <Form.Group as={Col} md='7' className='text-center mb-3 mt-3'>
                     <div className='pay-button'>
-                    <button className='w-75' onClick={handleInputChange}>
-                      Proceed and Pay {calculateTotalPrice()}$
-                    </button>
+                      <Button type='submit' className='w-75'>
+                        Proceed and Pay {calculateTotalPrice()}$
+                      </Button>
                     </div>
                   </Form.Group>
                 </Row>
               </Form>
             </div>
+
+            {showPaymentOptions && (
+              <div>
+                <h2 className='form-title'>Payment Information</h2>
+                <Form noValidate validated={validatedPayment} onSubmit={handlePaymentSubmit}>
+                  <Row className='mb-3'>
+                    <Form.Group as={Col} md='6' className='mb-3'>
+                      <Form.Label>Card Number</Form.Label>
+                      <Form.Control
+                        type='card'
+                        placeholder='Enter card number'
+                        required
+                      />
+                      <Form.Control.Feedback type='invalid'>
+                        Please provide a card number.
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group as={Col} md='3' className='mb-3'>
+                      <Form.Label>Expiration Date</Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='MM/YY'
+                        required
+                      />
+                      <Form.Control.Feedback type='invalid'>
+                        Please provide the expiration date.
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group as={Col} md='3' className='mb-3'>
+                      <Form.Label>CVV</Form.Label>
+                      <Form.Control
+                        type='number'
+                        placeholder='CVV'
+                        required
+                      />
+                      <Form.Control.Feedback type='invalid'>
+                        Please provide the CVV.
+                      </Form.Control.Feedback>
+                    </Form.Group>
+                  </Row>
+                  <div className='pay-button'>
+                    <Button type='submit'>
+                      {showSpinner ? (
+                        <span className='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                      ) : (
+                        'Pay Now'
+                      )}
+                    </Button>
+                  </div>
+                </Form>
+              </div>
+            )}
+
+            {showPayment && (
+              <Modal show={true} onHide={handleClosePaymentModal}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Payment Successful</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>Thank you for your purchase! Your order will be delivered soon.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant='secondary' onClick={handleClosePaymentModal}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            )}
           </div>
         ) : (
-          <div className='text-center font-weight-bold'>Looks like your Cart is empty :(</div>
+          <div className='empty-cart'>
+            <h2>Looks like your Cart is empty :(</h2>
+            <Link to='/menu'>
+              <Button variant='primary'>Go to Menu</Button>
+            </Link>
+          </div>
         )}
       </div>
     </div>
