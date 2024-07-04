@@ -23,4 +23,4 @@ An alien food delivery website built using JavaScript and React. This project al
 
 
 
-![Astral Eats Screenshot]("../../public/homepageSS.png")
+![Astral Eats Screenshot](public/homepageSS.png)
