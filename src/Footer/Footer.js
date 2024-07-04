@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className='footer-container'>
       <div className='row position-relative container m-auto'>
-        <div className='footer-item col-12 col-md-6 col-lg-3'>
+        <div className='categos footer-item col-12 col-md-6 col-lg-3'>
           <h2>Categories</h2>
           <p>Main Dishes</p>
           <p>Starters</p>

@@ -55,6 +55,17 @@
 }
 
 
+@media screen and (max-width: 992px){
+    .about-us-container h1, h2 {
+        text-align: center;
+        margin: 2rem;
+    }
+
+    .about-us-container {
+        padding-top: 0;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .about-us-container p, .about-us-container ul {
         font-size: 0.8rem;

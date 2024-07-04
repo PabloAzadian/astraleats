@@ -51,8 +51,10 @@ function ItemCard({ item }) {
     <div>
       <div onClick={handleShow} className='itemcard'>
         <img src={item.imgsrc} alt={item.name} />
-        <p>{item.name}</p>
-        <p>{item.price}€</p>
+        <div className='card-text'>
+          <p>{item.name}</p>
+          <p>{item.price}€</p>
+        </div>
       </div>
 
       <Modal show={show} size='lg' data-bs-theme="dark" onHide={handleClose}>
@@ -63,7 +65,7 @@ function ItemCard({ item }) {
           <div className='row'>
             <div className='col-12 col-sm-6'>
               <img src={item.imgsrc} alt={item.name} className='modal-img' />
-            </div>
+            </div>   
             <div className='col-12 col-sm-6'>
               <p>{item.description}</p>
               <div className='extras-list'>

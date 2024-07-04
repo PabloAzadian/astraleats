@@ -4,26 +4,37 @@
     border-radius: 8px;
     padding: 1rem;
     text-align: left;
-    color: #fff; /* Ensuring text color is visible against dark background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding some shadow for depth */
-    transition: transform 0.3s, box-shadow 0.3s; /* Adding transition for hover effect */
-    margin: 0.5rem; /* Adding some margin */
+    color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s; 
+    margin: 0.5rem; 
     font-family: Cartesian;
+    min-height: 250px;
+    max-height: 250px;
   }
   
   .itemcard img {
     height: 150px;
     width: auto;
-    border-radius: 4px; /* Adding border radius to the image */
-    margin-bottom: 0.5rem; /* Adding space between the image and text */
+    border-radius: 4px; 
+    margin-bottom: 0.5rem; 
   }
   
   .itemcard p {
-    font-size: 0.8rem; /* Increasing font size */
-    margin: 0.5rem 0 0; /* Adding some margin for spacing */
-    width: 100%; /* Setting the text width to match the container's width */
-    max-width: 150px; /* Ensuring the text width doesn't exceed the image width */
-    margin: 0 auto; /* Centering the text */
+    font-size: 0.8rem; 
+    margin: 0.5rem 0 0; 
+    width: 100%; 
+    max-width: 150px; 
+    margin: 0 auto; 
+  }
+  
+  .card-text{
+    display: flex;
+    flex-direction: column;
+    height: 65px;
+    margin: auto;
+    justify-content: space-between;
+    
   }
   
   .itemcard:hover {
