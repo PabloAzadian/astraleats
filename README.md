@@ -1,3 +1,5 @@
+
+
 # Astral Eats
 
 An alien food delivery website built using JavaScript and React. This project allows users to order "alien" food to their home planets, offering a user-friendly experience and visually appealing design. It features responsive layouts, intuitive navigation, and images created with Midjourney AI. The application utilizes Bootstrap for styling and is designed with a focus on modern web development practices.
@@ -21,4 +23,4 @@ An alien food delivery website built using JavaScript and React. This project al
 
 
 
-![Astral Eats Screenshot]("../../src/images/homepageSS.png")
+![Astral Eats Screenshot]("../../public/homepageSS.png")
