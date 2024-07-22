@@ -12,13 +12,13 @@ function SideCartItem(props) {
             <span>{props.item.name}</span>
             <button className='remove-item' onClick={() => props.removeItem(props.index)}><span>x</span></button>
           </Card.Title>
-          <Card.Text className="d-flex gap-2 flex-column  h-100">
+          <Card.Text className="d-flex gap-2 flex-column">
             <div className='sidecart-item-modifiers'>
               {props.item.extras.map((extra, index) => (
                 <p key={index}>{extra.name} (+{extra.price}€)</p>
               ))}
             </div>
-            <div className='prices gap-2 d-flex'>
+            <div className='prices gap-2 d-flex mt-auto'>
               
                 <span>{props.item.price}€</span>
               

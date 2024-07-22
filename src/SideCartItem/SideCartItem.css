@@ -60,6 +60,10 @@
 .card-body {
     background-image: url(../images/pattern\ 111.png);
     background-size: 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
     
 }
 
